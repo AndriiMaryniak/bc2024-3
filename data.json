@@ -1,0 +1,23 @@
+[
+    {
+      "AuctionDate": "10.09.2024",
+      "AuctionNum": "128",
+      "ValCode": "UAH",
+      "StockCode": "UA4000231625",
+      "PayDate": "11.09.2024",
+      "RepayDate": "09.02.2028",
+      "DaysToRepay": 1246,
+      "Attraction": 351057674.21
+    },
+    {
+      "AuctionDate": "10.09.2024",
+      "AuctionNum": "126",
+      "ValCode": "UAH",
+      "StockCode": "UA4000232607",
+      "PayDate": "11.09.2024",
+      "RepayDate": "05.08.2026",
+      "DaysToRepay": 693,
+      "Attraction": 5072752480
+    }
+  ]
+  
