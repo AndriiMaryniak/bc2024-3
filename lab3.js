@@ -5,21 +5,16 @@ const program = new Command();
 program
   .requiredOption("-i, --input <file>", "input file path")
   .option("-o, --output <file>", "output file path")
-  .option("-d, --display", "display result in console")
-  .configureOutput({
-    outputError: (str, write) => {
-        if (str.includes("-i")) { write("Please, specify input file"); }
-        else {
-            write(str);
-        }
-        // else if (str.includes("Шлях до вхідного файлу")) write('-i, --input <path>, Шлях до вхідного файлу JSON not specified')
-    }
-});
+  .option("-d, --display", "display result in console");
 
 program.parse(process.argv);
 
 const options = program.opts();
 
+if (!options.input) {
+  console.error("Please, specify input file");
+  process.exit(1);
+}
 
 if (!fs.existsSync(options.input)) {
   console.error("Cannot find input file");
@@ -30,7 +25,6 @@ if (!fs.existsSync(options.input)) {
 const data = JSON.parse(fs.readFileSync(options.input, "utf-8"));
 
 // Обробка даних для варіанту 4
-//map cтворює новий масив, не змінюючи оригінальний
 const results = data.map(item => {
   return `${item.StockCode}-${item.ValCode}-${item.Attraction}`;
 });
